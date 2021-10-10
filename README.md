@@ -3,7 +3,7 @@
 
 **Overview**
 
-While new generator models, such as [StyleGAN3](https://nvlabs.github.io/alias-free-gan/), enable new media synthesis capabilities, they may also present a new challenge for AI forensics algorithms for detection,  attribution, and characterization of synthetic media.
+While new generator models, such as [StyleGAN3](https://nvlabs.github.io/stylegan3/), enable new media synthesis capabilities, they may also present a new challenge for AI forensics algorithms for detection,  attribution, and characterization of synthetic media.
 
 As part of DARPA's [Semantic Forensics](https://www.darpa.mil/program/semantic-forensics) (SemaFor, for short) program, NVIDIA has been collaborating with digital forensics experts and researchers to help advance the capabilities to verify the authenticity and provenance of synthetic media.
 
