@@ -95,6 +95,23 @@ This detector from the University of Michigan team is based on "_CNN-generated i
 </p>
 
 
+**UNISI Team** : 
+
+The detector developed by the University of Siena uses XceptionNet as a backbone to build a GAN face detector based on a Siamese Network that is trained to look at eye inconsistencies. The FFHQ and CelebA-HQ datasets were used as pristine training datasets, while StyleGAN2 (with various truncation parameters) using the same real datasets was used to generate images (faces only) as synthetic training datasets . The detector achieves AUC **0.97** (config-r) and **0.95** (config-t) on FFHQ-U StyleGAN3 generated images. The performance reduces by about 15% in presence of compression. Some generalization is also achieved with respect to unseen data, i.e., AFHQ and Metfaces, that are types of images the detector never saw during the training. Their internal experiments on calibration suggested that a common threshold could be found that can work acceptably well for all the datasets. Please see the [ppt slides](./slides/unisi-gan-detection.pdf) for additional descriptions and results.
+<p align="center">
+<img src="./figs/unisi-gan-detection_Page_8.png" alt="unisi_result" width="512"/>
+</p>
+
+
+**Kitware Team** :  https://github.com/Kitware/generated-image-detection
+
+The Kitware Generated Image Detector was developed under the DARPA SemaFor program to distinguish GAN-generated images from the typical images published by the online news outlets. The algorithm details are available in the [slides](https://github.com/Kitware/generated-image-detection/blob/main/doc/kitware_SG3_generated.pdf) and is designed to distinguish between the trustworthy news images from computer-generated images. The model is trained through supervised training using images from a number news outlets, FFHQ, LFW, and StyleGAN2 images. No StyleGAN3 images were used in the training. Various image representations (raw pixels vs residual images) and deep learning backbones (ResNet, EfficientNet, and VGG) were empirically analyzed and the performance was similar. Finally, the network backbone using ResNet was applied for this experiment to the StyleGAN3 test datasets. This detector achieved the global AUC of **0.92** (Global in the image below) across all the subsets of the test data. Performance on the various subsets is shown below with the strongest AUC of **0.97** for the FFHQ subset and **0.65** for Metafaces, which is the most challenging subset for this detector. We found that the inclusion of FFHQ and StyleGAN2 images in the training data helped improve the detector performance. 
+<p align="center">
+<img src="./figs/ROC_kitware.png" alt="kitware_result" width="512"/>
+</p>
+
+
+
 
 ## Final Remarks 
 By crafting a challenging dataset from previously unseen, state-of-the-art media generation algorithms, we aimed to provide crucial information to researchers developing and testing detector algorithms for new, highly realistic AI images. Such detectors can help identify and analyze synthetic images to combat visual misinformation.
